@@ -1,0 +1,59 @@
+---
+title: "Disease Prediction with Symptoms"
+Author: Augustine Yuan
+Date: May 16 2021
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r library, message=FALSE}
+library(tidyverse)
+library(tidyr)
+library(LiblineaR)
+library(scales)
+```
+
+
+```{r data}
+train = read.csv('https://raw.githubusercontent.com/anujdutt9/Disease-Prediction-from-Symptoms/master/dataset/training_data.csv')
+test = read.csv('https://raw.githubusercontent.com/anujdutt9/Disease-Prediction-from-Symptoms/master/dataset/test_data.csv')
+train = train[,1:133]
+all = rbind(train, test)
+```
+
+
+```{r preprocessing}
+x = all %>% select(-prognosis)
+names(x) <- gsub("_", " ", names(x))
+
+y = all %>% select(prognosis)
+all_symptom = colnames(x)
+length = length(x)
+
+samples = sample(1:nrow(all),size = nrow(all)*0.95,replace=F)
+train = all[samples,]  
+train_data = train %>% select(-prognosis)
+train_label = train %>% select(prognosis)
+test = all[-samples,]
+test_data = test %>% select(-prognosis)
+test_label = test %>% select(prognosis)
+```
+
+
+Regularized log regression linear model
+```{r model}
+regfit = LiblineaR(train_data, train_label, type = 0, cost = 1)
+prediction = predict(regfit, test_data, proba=TRUE)
+acc = replicate(length(prediction$predictions),0)
+for (i in 1:length(prediction$predictions)){
+  if (prediction$predictions[i] == test_label[i,]){
+    acc[i] = 1
+  }
+}
+accuracy = mean(acc)
+```
+
