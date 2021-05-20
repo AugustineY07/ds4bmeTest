@@ -7,6 +7,7 @@ https://ay07.shinyapps.io/Disease_Prediction/
 
 
 Link to the presentation video:
+https://drive.google.com/drive/folders/191H536zTQzBXucAw4yyhbmQB05X7aASJ
 
 
 References:  
