@@ -6,6 +6,8 @@ Link to the app:
 https://ay07.shinyapps.io/Disease_Prediction_with_Symptoms/
 
 
+Link to the presentation video:
+
 
 References:  
 https://github.com/rahul15197/Disease-Detection-based-on-Symptoms/blob/master/Model_latest.ipynb
