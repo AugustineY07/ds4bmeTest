@@ -3,7 +3,7 @@ The app takes in user inputs in checkbox group. The user can select all symptoms
 
 
 Link to the app: 
-https://ay07.shinyapps.io/Disease_Prediction_with_Symptoms/
+https://ay07.shinyapps.io/Disease_Prediction/
 
 
 Link to the presentation video:
