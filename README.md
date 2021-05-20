@@ -1,5 +1,5 @@
 # Capstone Project: Disease Prediction with Symptoms
-The app takes in user inputs in checkbox group. The user can select all symptoms applied and click submit to generate a prediction. A threshold of 50% is chosen for being classified as possibly having certain disease. Otherwise, the user is regarded as “healthy”.
+The app takes in user inputs in checkbox group. The user can select all symptoms applied and click submit to generate a prediction. A threshold of 50% is chosen for being classified as possibly having certain disease. Otherwise, the user is regarded as “healthy”. If regarded as "healthy", the probability is calculated by 1-probability of the most likely disease. 
 
 
 Link to the app: 
